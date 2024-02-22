@@ -1,0 +1,22 @@
+
+public class FindWord {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+
+      String s=  findMaxOfLength("C:\\Users\\HP\\MD2-JAVA\\SS18-file\\src\\baitap\\bai3\\databai3")
+        System.out.println(s);
+    }
+    public static String findMaxOfLength(String parth) throws IOException, ClassNotFoundException {
+        FileInputStream fos=new FileInputStream(parth);
+        ObjectInputStream oos=new ObjectInputStream(fos);
+        List<String> list= (List<String>) oos.readObject();
+        int max=0;
+        String word="";
+        for (String s : list) {
+            if (s.length()<max){
+                max=s.length();
+                word=s;
+            }
+        }
+        return word;
+    }
+}
